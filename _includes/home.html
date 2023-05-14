@@ -1,9 +1,11 @@
-<table>
-    <tr>
-        <td><a href="/">Home</a></td>
-        <td><a href="/instructions">Instructions</a></td>
-    </tr>
-</table>
+<ul>
+    <li>
+        <a class="active" href="/">Home</a>
+    </li>
+    <li>
+        <a id="inst-link" href="/instructions">Instructions</a>
+    </li>
+</ul>
 
 <!--
     $grey: #54494B;
@@ -15,24 +17,56 @@
 
 <style>
 
-    a
-    {
-        color: #91c7b1;
+
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 5px;
+    border-radius: 25px;
+    transition: width .2s, height, .2s;
+}
+
+li
+{
+    float: left;
+    border-right:1px solid #b33951;
+    transition: width .2s, height, .2s;
+}
+
+li:last-child
+{
+    border-right: none;
+}
+
+li a
+{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #f1f7ed;
+    padding: 14px 16px;
+    transition: width .2s, height, .2s;
     }
 
-    h2
-    {
-        color: #b33951;
-    }
+li a:hover:not(.active)
+{
+    background-color: rgba(17, 17, 17, 0.433);
+}
 
-    h3
-    {
-        color: #e3d081;
-    }
-
-    p
-    {
-        color: #54494B;
-    }
+.active
+{
+    background-color: #91c7b1;
+}
 
 </style>
+
+
+
+
+
