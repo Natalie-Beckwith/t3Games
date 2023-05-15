@@ -5,6 +5,15 @@
     <li>
         <a id="inst-link" href="{{site.baseurl}}/instructions.html">Instructions</a>
     </li>
+    <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Games</a>
+        <div class="dropdown-content">
+          <a href="#">Tik-Tac-Toe</a>
+          <a href="#">Connect 4</a>
+          <a href="#">Flappy Bird</a>
+          <a href="#">Poker</a>
+        </div>
+      </li>
 </ul>
 
 <!--
@@ -16,20 +25,16 @@
 -->
 
 <style>
-
-
-ul
-{
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    border-radius: 25px;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 5px;
-    border-radius: 25px;
-    transition: width .2s, height, .2s;
 }
 
 li
@@ -38,31 +43,71 @@ li
     border-right:1px solid #b33951;
     transition: width .2s, height, .2s;
 }
-
 li:last-child
 {
     border-right: none;
 }
 
-li a
-{
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    color: #f1f7ed;
-    padding: 14px 16px;
-    transition: width .2s, height, .2s;
-    }
-
-li a:hover:not(.active)
-{
-    background-color: rgba(17, 17, 17, 0.433);
+li a, .dropbtn {
+  display: inline-block;
+  color: #f1f7ed;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: width .2s, height, .2s;
 }
 
-.active
+li a:hover, .dropdown:hover .dropbtn
 {
+  background-color: #b33951;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f7ed;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 2px;
+    animation: rotateMenu 400ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+.dropdown-content a {
+  color: #54494B;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transform: translateY(0);
+}
+
+.dropdown-content a:hover {
     background-color: #91c7b1;
+    color: #f1f7ed;
 }
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@keyframes rotateMenu {
+    0% {
+        transform: rotateX(-90deg)
+    }
+    70% {
+        transform: rotateX(20deg) 
+    }
+    100% {
+        transform: rotateX(0deg) 
+    }
+}
+
 
 </style>
 
