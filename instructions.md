@@ -2,7 +2,8 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.accordion {
+.accordion
+{
   background-color: #101f26;
   color: #e4eefa;
   cursor: pointer;
@@ -42,14 +43,22 @@
 }
 </style>
 </head>
-<body>
+<body id ="instructions-body">
 
 <h2>Instructions</h2>
 <br>
 
 <button class="accordion">Tic-Tac-Toe</button>
 <div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>When you click play, a menu will appear with 4 different options for playing.</p>
+  <h4>Human VS Computer</h4>
+  <p>This option allows you to play against a computer.</p>
+  <h4>Human VS Human</h4>
+  <p>This option allows you to play against another person.</p>
+  <h4>Computer VS Computer</h4>
+  <p>In this option, two computers play each other.</p>
+  <h4>Quit</h4>
+  <p>This option quits the game.</p>
 </div>
 <br>
 
@@ -67,7 +76,116 @@
 
 <button class="accordion">Poker</button>
 <div class="panel">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>Below is how different hands are scored.</p>
+  <!--<img src="https://content.artofmanliness.com/uploads//2015/05/poker-how-to-ranking.jpg" alt="img" style="width:35%;">
+  <br>--><br>
+
+  <h4>Royal Flush</h4>
+  <h5>250 Tokens</h5>
+  <p>This hand contains 5 cards in sequence all of the same suit.</p>
+  <p>
+    [A ♥] 
+    [K ♥] 
+    [Q ♥] 
+    [J ♥] 
+    [10 ♥]
+  </p><br>
+  
+  <h4>Straight Flush</h4>
+  <h5>50 Tokens</h5>
+  <p>This hand contains 5 cards in sequence, all of the same rank.</p>
+  <p>
+    [8 ♧] 
+    [7 ♧] 
+    [6 ♧] 
+    [5 ♧] 
+    [4 ♧] 
+  </p>
+  <br>
+  
+  <h4>4 of a Kind</h4>
+  <h5>25 Tokens</h5>
+  <p>This hand contains all 4 cards of one rank and any other unmatched card.</p>
+  <p>
+    [5 ♦] 
+    [5 ♤] 
+    [5 ♥] 
+    [5 ♧] 
+    [3 ♥] 
+  </p>
+  <br>
+  
+  <h4>Full House</h4>
+  <h5>6 Tokens</h5>
+  <p>This hand contains 3 matching cards of 1 rank and 2 matching cards of another rank.</p>
+  <p>
+    [K ♥] 
+    [K ♦] 
+    [K ♤] 
+    [5 ♥] 
+    [5 ♧] 
+  </p>
+  <br>
+  
+  <h4>Flush</h4>
+  <h5>5 Tokens</h5>
+  <p>This hand contains all 5 cards of the same suit, but not in sequence.</p>
+  <p>
+    [K ♤] 
+    [J ♤] 
+    [9 ♤] 
+    [7 ♤] 
+    [3 ♤] 
+  </p>
+  <br>
+
+  <h4>Straight</h4>
+  <h5>4 Tokens</h5>
+  <p>This hand contains 5 cards of sequential rank in at least 2 different suits.</p>
+  <p>
+    [8 ♧] 
+    [7 ♧] 
+    [6 ♧] 
+    [5 ♧] 
+    [4 ♧] 
+  </p>
+  <br>
+  
+  <h4>3 of a Kind</h4>
+  <h5>3 Tokens</h5>
+  <p>This hand contains 3 cards of the same rank, with 2 cards not of this suit nor the same as each other.</p>
+  <p>
+    [Q ♤] 
+    [Q ♥] 
+    [Q ♦] 
+    [5 ♤] 
+    [9 ♧] 
+  </p>
+  <br>
+  
+  <h4>2 Pair</h4>
+  <h5>2 Tokens</h5>
+  <p>This hand contains 2 cards of the same rank, plus 2 cards of another rank</p>
+  <p>
+    [K ♥] 
+    [K ♤] 
+    [J ♧] 
+    [J ♦] 
+    [9 ♦] 
+  </p>
+  <br>
+
+  <h4>1 Pair</h4>
+  <h5>1 Token</h5>
+  <p>This hand contains 2 cards of the same rank.</p>
+  <p>
+    [A ♧] 
+    [A ♦] 
+    [9 ♥] 
+    [6 ♤] 
+    [4 ♦] 
+  </p>
+  <br>
 </div>
 
 <script>
