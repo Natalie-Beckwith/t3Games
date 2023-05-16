@@ -5,16 +5,17 @@
 
 /* "row style" is flexible size and aligns pictures in center */
 
-$grey: #54494B;
-$white: #f1f7ed;
-$blue: #91c7b1;
-$red: #b33951;
-$yellow: #e3d081;
+$grey: #04060b;
+$white: #e4eefa;
+$blue: #4877b7;
+$red: #7f3136;
+$yellow: #4b9467;
 
 body
 {
   margin: 40px;
   background-color: $grey;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
@@ -66,4 +67,31 @@ img
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+}
+
+#site-title
+{
+  font-size: 150px !important;
+  color: gb(249, 255, 233) !important;
+  text-align: center !important;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-family:Impact;
+}
+
+#site-description
+{
+  color: rgb(249, 255, 233) !important;
+  text-align: center !important;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-family:Impact;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 60px $yellow, 0 0 70px $yellow;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #a5af5e, 0 0 40px #a5af5e, 0 0 50px #a5af5e, 0 0 60px #a5af5e, 0 0 70px #a5af5e, 0 0 80px #a5af5e;
+  }
 }
