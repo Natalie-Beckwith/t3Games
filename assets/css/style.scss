@@ -24,12 +24,12 @@ a
     color: $blue;
 }
 
-h2
+h2, h5
 {
     color: $red;
 }
 
-h3
+h3, h4
 {
     color: $yellow;
 }
@@ -50,14 +50,6 @@ hr
 {
   border-width: 3px;
   border-color: $yellow;
-}
-
-img
-{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
 }
 
 #title
