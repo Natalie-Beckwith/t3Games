@@ -87,3 +87,17 @@ hr
     text-shadow: 0 0 20px #fff, 0 0 30px #a5af5e, 0 0 40px #a5af5e, 0 0 50px #a5af5e, 0 0 60px #a5af5e, 0 0 70px #a5af5e, 0 0 80px #a5af5e;
   }
 }
+
+h1 {
+  text-align: center;
+}
+
+#board {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+}
+
