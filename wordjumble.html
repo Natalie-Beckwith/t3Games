@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Jumble Game</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #scrambledWord {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #guessInput {
+      margin-top: 20px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #f00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Word Jumble Game</h1>
+  <p id="scrambledWord"></p>
+  <input type="text" id="guessInput" placeholder="Enter your guess">
+  <button onclick="checkGuess()">Check</button>
+  <p id="message"></p>
+
+  <script>
+    var words = ["apple", "banana", "cherry", "grape", "orange"];
+    var scrambledWord = "";
+    var randomWord = "";
+
+    function selectRandomWord() {
+      randomWord = words[Math.floor(Math.random() * words.length)];
+    }
+
+    function scrambleWord(word) {
+      return word.split('').sort(function() { return 0.5 - Math.random() }).join('');
+    }
+
+    function displayScrambledWord() {
+      scrambledWord = scrambleWord(randomWord);
+      document.getElementById("scrambledWord").textContent = scrambledWord;
+    }
+
+    function checkGuess() {
+      var guess = document.getElementById("guessInput").value.toLowerCase();
+      if (guess === randomWord) {
+        document.getElementById("message").textContent = "Congratulations! You guessed the word correctly!";
+      } else {
+        document.getElementById("message").textContent = "Oops! Try again.";
+      }
+    }
+
+    selectRandomWord();
+    displayScrambledWord();
+  </script>
+</body>
+</html>
