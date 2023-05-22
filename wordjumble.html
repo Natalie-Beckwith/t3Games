@@ -46,11 +46,14 @@
   <input type="text" id="guessInput" placeholder="Enter your guess">
   <button onclick="checkGuess()">Check</button>
   <p id="message"></p>
+  <button onclick="nextWord()">Next Word</button>
+  <button onclick="showHint()">Hint</button>
 
   <script>
     var words = ["apple", "banana", "cherry", "grape", "orange"];
     var scrambledWord = "";
     var randomWord = "";
+    var hint = "";
 
     function selectRandomWord() {
       randomWord = words[Math.floor(Math.random() * words.length)];
@@ -72,6 +75,18 @@
       } else {
         document.getElementById("message").textContent = "Oops! Try again.";
       }
+    }
+
+    function nextWord() {
+      document.getElementById("guessInput").value = "";
+      document.getElementById("message").textContent = "";
+      selectRandomWord();
+      displayScrambledWord();
+    }
+
+    function showHint() {
+      hint = randomWord.substring(0, 2);
+      document.getElementById("message").textContent = "Hint: The word starts with '" + hint + "'.";
     }
 
     selectRandomWord();
