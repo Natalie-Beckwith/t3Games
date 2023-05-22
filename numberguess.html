@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Number Guessing Games</title>
+  <title>Numbers Guessing Games</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     h1 {
       color: #333;
-      text-align: center;
-      margin-top: 50px;
     }
 
     p {
       color: #666;
-      font-size: 18px;
-      text-align: center;
-      margin-bottom: 10px;
     }
 
     input[type="number"] {
-      padding: 10px;
+      padding: 8px;
       font-size: 16px;
-      border: none;
+      border: 1px solid #ccc;
       border-radius: 4px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-      width: 200px;
-      margin-bottom: 20px;
     }
 
     button {
-      padding: 12px 24px;
-      font-size: 18px;
+      padding: 10px 20px;
+      font-size: 16px;
       background-color: #4CAF50;
       color: #fff;
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -49,8 +40,6 @@
     #feedback {
       color: #f00;
       font-weight: bold;
-      font-size: 18px;
-      margin-top: 20px;
     }
   </style>
   <script>
@@ -89,7 +78,7 @@
   <h1>Number Guessing Game</h1>
   <p>Guess a number between 1 and 100:</p>
   <input type="number" id="guessInput">
-  <br>
+  <br><br>
   <button onclick="checkGuess()">Guess</button>
   <p id="feedback"></p>
 </body>
