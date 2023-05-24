@@ -3,6 +3,7 @@
 <head>
   <title>Word Jumble Game</title>
   <style>
+    /* CSS styles for the game interface */
     body {
       text-align: center;
       font-family: Arial, sans-serif;
@@ -50,24 +51,31 @@
   <button onclick="showHint()">Hint</button>
 
   <script>
+    // List of words for the game
     var words = ["apple", "banana", "cherry", "grape", "orange"];
+
+    // Variables to hold the current word, scrambled word, and hint
     var scrambledWord = "";
     var randomWord = "";
     var hint = "";
 
+    // Function to select a random word from the list
     function selectRandomWord() {
       randomWord = words[Math.floor(Math.random() * words.length)];
     }
 
+    // Function to scramble a word by shuffling its letters
     function scrambleWord(word) {
       return word.split('').sort(function() { return 0.5 - Math.random() }).join('');
     }
 
+    // Function to display the scrambled word on the page
     function displayScrambledWord() {
       scrambledWord = scrambleWord(randomWord);
       document.getElementById("scrambledWord").textContent = scrambledWord;
     }
 
+    // Function to check the user's guess against the random word
     function checkGuess() {
       var guess = document.getElementById("guessInput").value.toLowerCase();
       if (guess === randomWord) {
@@ -77,6 +85,7 @@
       }
     }
 
+    // Function to reset the game and select a new random word
     function nextWord() {
       document.getElementById("guessInput").value = "";
       document.getElementById("message").textContent = "";
@@ -84,11 +93,13 @@
       displayScrambledWord();
     }
 
+    // Function to show a hint for the current word
     function showHint() {
       hint = randomWord.substring(0, 2);
       document.getElementById("message").textContent = "Hint: The word starts with '" + hint + "'.";
     }
 
+    // Initial setup: select a random word and display it scrambled
     selectRandomWord();
     displayScrambledWord();
   </script>
