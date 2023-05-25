@@ -3,6 +3,7 @@
 <head>
   <title>Memory Game</title>
   <style>
+    /* CSS styles for the game interface */
     body {
       display: flex;
       justify-content: center;
@@ -75,6 +76,7 @@
     var secondCard = null;
     var lockBoard = false;
     
+    // Function to reveal a card when clicked
     function revealCard(card) {
       if (lockBoard) return;
       
@@ -89,12 +91,14 @@
       checkMatch();
     }
     
+    // Function to check if the two revealed cards match
     function checkMatch() {
       var isMatch = firstCard.textContent === secondCard.textContent;
       
       isMatch ? disableCards() : unflipCards();
     }
     
+    // Function to disable matching cards
     function disableCards() {
       firstCard.removeEventListener('click', revealCard);
       secondCard.removeEventListener('click', revealCard);
@@ -102,6 +106,7 @@
       resetBoard();
     }
     
+    // Function to unflip non-matching cards
     function unflipCards() {
       lockBoard = true;
       
@@ -113,11 +118,13 @@
       }, 1000);
     }
     
+    // Function to reset the game board and variables
     function resetBoard() {
       [firstCard, secondCard] = [null, null];
       lockBoard = false;
     }
     
+    // Function to shuffle an array 
     function shuffle(array) {
       var currentIndex = array.length, temp, randomIndex;
       

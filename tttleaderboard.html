@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe Leaderboard</title>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+        }
+    
+        body {
+    height: 100vh;
+    background: linear-gradient(135deg, #9f79f9, #66b2d8);
+        }
+
+        html {
+    font-size: 16px;
+    }
+
+    .wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    }
+
+    #leaderboard {
+    width: 60vmin;
+    margin: 2vmin auto;
+    padding: 2vmin;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: #8137e1;
+    text-align: center;
+}
+#leaderboard h2 {
+    font-size: 2vmin;
+    margin-bottom: 2vmin;
+}
+#leaderboard p {
+    font-size: 1.5vmin;
+    margin-bottom: 1vmin;
+}
+</style>
+</head>
+<body>
+    <section id="leaderboard">
+        <h2>Leaderboard</h2>
+        <p id="xWins">X Wins: 0</p>
+        <p id="oWins">O Wins: 0</p>
+        <p id="draws">Draws: 0</p>
+    </section>
+</body>
+</html>

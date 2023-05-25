@@ -1,9 +1,14 @@
+// Get references to buttons, popup, new game button, restart button and message element
 let btnRef = document.querySelectorAll(".button-option");
 let popupRef = document.querySelector(".popup");
 let newgameBtn = document.getElementById("new-game");
 let restartBtn = document.getElementById("restart");
 let msgRef = document.getElementById("message");
-//Winning Pattern Array
+let xWins = 0;
+let oWins = 0;
+let draws = 0;
+
+// Define possible winning patterns in a 3x3 grid
 let winningPattern = [
   [0, 1, 2],
   [0, 3, 6],
@@ -14,95 +19,100 @@ let winningPattern = [
   [0, 4, 8],
   [2, 4, 6],
 ];
-//Player 'X' plays first
-let xTurn = true;
-let count = 0;
 
-//Disable All Buttons
+// By default, Player 'X' plays first
+let xTurn = true;
+let count = 0; // Keeps track of turns taken
+
+// disable all buttons
 const disableButtons = () => {
   btnRef.forEach((element) => (element.disabled = true));
-  //enable popup
+  // Show popup
   popupRef.classList.remove("hide");
 };
 
-//Enable all buttons (For New Game and Restart)
+// enable all buttons (Used for New Game and Restart)
 const enableButtons = () => {
   btnRef.forEach((element) => {
-    element.innerText = "";
-    element.disabled = false;
+    element.innerText = "";  // Clear the button text
+    element.disabled = false;  // Enable the button
   });
-  //disable popup
+  // Hide popup
   popupRef.classList.add("hide");
 };
 
-//This function is executed when a player wins
+// when a player wins
 const winFunction = (letter) => {
+  // Disable all buttons when a player wins
   disableButtons();
-  if (letter == "X") {
-    msgRef.innerHTML = "&#x1F389; <br> 'X' Wins";
+  // Display win message based on which player wins
+  msgRef.innerHTML = letter == "X" ? "&#x1F389; <br> 'X' Wins" : "&#x1F389; <br> 'O' Wins";
+  // Increment the appropriate win counter
+  if (letter === "X") {
+    xWins++;
+    document.getElementById('xWins').innerText = `X Wins: ${xWins}`;
   } else {
-    msgRef.innerHTML = "&#x1F389; <br> 'O' Wins";
+    oWins++;
+    document.getElementById('oWins').innerText = `O Wins: ${oWins}`;
   }
 };
 
-//Function for draw
+// Function for handling draw scenario
 const drawFunction = () => {
-  disableButtons();
-  msgRef.innerHTML = "&#x1F60E; <br> It's a Draw";
+  disableButtons();  // Disable all buttons on draw
+  msgRef.innerHTML = "&#x1F60E; <br> It's a Draw";  // Display draw message
+  draws++;  // Increment draw counter
+  document.getElementById('draws').innerText = `Draws: ${draws}`;
 };
 
-//New Game
+// Start a new game or restart existing game
 newgameBtn.addEventListener("click", () => {
-  count = 0;
-  enableButtons();
-});
-restartBtn.addEventListener("click", () => {
-  count = 0;
-  enableButtons();
+  count = 0;  // Reset turn count
+  enableButtons();  // Enable all buttons
 });
 
-//Win Logic
+restartBtn.addEventListener("click", () => {
+  count = 0;  // Reset turn count
+  enableButtons();  // Enable all buttons
+});
+
+// Function to check for win
 const winChecker = () => {
-  //Loop through all win patterns
+  // Loop through all possible winning patterns
   for (let i of winningPattern) {
+    // Extract the contents of the potential winning buttons
     let [element1, element2, element3] = [
       btnRef[i[0]].innerText,
       btnRef[i[1]].innerText,
       btnRef[i[2]].innerText,
     ];
-    //Check if elements are filled
-    //If 3 empty elements are same and would give win as would
-    if (element1 != "" && (element2 != "") & (element3 != "")) {
-      if (element1 == element2 && element2 == element3) {
-        //If all 3 buttons have same values then pass the value to winFunction
-        winFunction(element1);
-      }
+    // Check if all elements in pattern are not empty and are the same
+    if (element1 != "" && element2 != "" && element3 != "" && element1 == element2 && element2 == element3) {
+      winFunction(element1);  // Call the win function with the winning letter
     }
   }
 };
 
-//Display X/O on click
+// Event listener for button clicks
 btnRef.forEach((element) => {
   element.addEventListener("click", () => {
     if (xTurn) {
-      xTurn = false;
-      //Display X
-      element.innerText = "X";
-      element.disabled = true;
+      xTurn = false;  // Switch turn
+      element.innerText = "X";  // Display 'X'
     } else {
-      xTurn = true;
-      //Display Y
-      element.innerText = "O";
-      element.disabled = true;
+      xTurn = true;  // Switch turn
+      element.innerText = "O";  // Display 'O'
     }
-    //Increment count on each click
-    count += 1;
-    if (count == 9) {
+    element.disabled = true;  // Disable the button after it's clicked
+    count += 1;  // Increment turn count
+    if (count == 9) {  // Check if all squares are filled (game is a draw)
       drawFunction();
     }
-    //Check for win on every click
-    winChecker();
+    winChecker();  // Check for win after each click
   });
 });
-//Enable Buttons and disable popup on page load
+
+// Enable buttons and hide popup when the page loads
 window.onload = enableButtons;
+
+
