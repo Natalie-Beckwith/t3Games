@@ -5,87 +5,40 @@
 
 /* "row style" is flexible size and aligns pictures in center */
 
-$grey: #04060b;
-$white: #e4eefa;
-$blue: #4877b7;
-$red: #7f3136;
-$yellow: #4b9467;
+$primary-color: #3a80c1;
+$secondary-color: #154d7f;
+$fade-duration: 3s;
 
-body
-{
-  margin: 40px;
-  background-color: $grey;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-
+body {
+  background: linear-gradient(to bottom, $primary-color, $secondary-color);
+  background-size: cover;
+  animation: background-fade $fade-duration infinite alternate;
 }
 
-a
-{
-    color: $blue;
-}
-
-h2, h5
-{
-    color: $red;
-}
-
-h3, h4
-{
-    color: $yellow;
-}
-
-p
-{
-    color: $white;
-}
-
-#title
-{
-  padding: 10px;
-  border: 3px solid $yellow;
-  border-radius: 25px;
-}
-
-hr
-{
-  border-width: 3px;
-  border-color: $yellow;
-}
-
-#title
-{
-  margin: 5px !important;
-  background-image: url("https://i.gifer.com/1IAH.gif");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-
-#site-title
-{
-  font-size: 150px !important;
-  color: gb(249, 255, 233) !important;
-  text-align: center !important;
-  animation: glow 1s ease-in-out infinite alternate;
-  font-family:Impact;
-}
-
-#site-description
-{
-  color: rgb(249, 255, 233) !important;
-  text-align: center !important;
-  animation: glow 1s ease-in-out infinite alternate;
-  font-family:Impact;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $yellow, 0 0 40px $yellow, 0 0 50px $yellow, 0 0 60px $yellow, 0 0 70px $yellow;
+@keyframes background-fade {
+  0% {
+    background: $primary-color;
   }
-  
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #a5af5e, 0 0 40px #a5af5e, 0 0 50px #a5af5e, 0 0 60px #a5af5e, 0 0 70px #a5af5e, 0 0 80px #a5af5e;
+  100% {
+    background: $secondary-color;
   }
+}
+
+// Additional styles for the site content
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #fff;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
 }
 
 
