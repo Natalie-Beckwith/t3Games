@@ -8,7 +8,6 @@
           <br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
         <br>
-        <!-- this is Jekyll magic, each md file in site will be inserted here -->
 
 </section>
 
