@@ -20,7 +20,7 @@ body {
     margin: 5px;
 
     /* Circle */
-    background-color: white;
+    background-color: black;
     border-radius: 50%;
     border: 5px solid navy;
 }
