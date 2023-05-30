@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Jumble Game</title>
+  <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="wordjumble.css">
+</head>
+<body>
+  <h1>Word Jumble Game</h1>
+  <p id="scrambledWord"></p>
+  <input type="text" id="guessInput" placeholder="Enter your guess">
+  <button onclick="checkGuess()">Check</button>
+  <p id="message"></p>
+  <button onclick="nextWord()">Next Word</button>
+  <button onclick="showHint()">Hint</button>
+
+  <script>
+    // List of words for the game
+    var words = ["apple", "banana", "cherry", "grape", "orange"];
+
+    // Variables to hold the current word, scrambled word, and hint
+    var scrambledWord = "";
+    var randomWord = "";
+    var hint = "";
+
+    // Function to select a random word from the list
+    function selectRandomWord() {
+      randomWord = words[Math.floor(Math.random() * words.length)];
+    }
+
+    // Function to scramble a word by shuffling its letters
+    function scrambleWord(word) {
+      return word.split('').sort(function() { return 0.5 - Math.random() }).join('');
+    }
+
+    // Function to display the scrambled word on the page
+    function displayScrambledWord() {
+      scrambledWord = scrambleWord(randomWord);
+      document.getElementById("scrambledWord").textContent = scrambledWord;
+    }
+
+    // Function to check the user's guess against the random word
+    function checkGuess() {
+      var guess = document.getElementById("guessInput").value.toLowerCase();
+      if (guess === randomWord) {
+        document.getElementById("message").textContent = "Congratulations! You guessed the word correctly!";
+      } else {
+        document.getElementById("message").textContent = "Oops! Try again.";
+      }
+    }
+
+    // Function to reset the game and select a new random word
+    function nextWord() {
+      document.getElementById("guessInput").value = "";
+      document.getElementById("message").textContent = "";
+      selectRandomWord();
+      displayScrambledWord();
+    }
+
+    // Function to show a hint for the current word
+    function showHint() {
+      hint = randomWord.substring(0, 2);
+      document.getElementById("message").textContent = "Hint: The word starts with '" + hint + "'.";
+    }
+
+    // Initial setup: select a random word and display it scrambled
+    selectRandomWord();
+    displayScrambledWord();
+  </script>
+</body>
+</html>
