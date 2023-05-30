@@ -1,44 +1,4 @@
 <!-- 
-  _layouts/default.html
-  customization to original Midnight theme 
-  found through GitHub Pages Themes
- -->
- <html lang="en-US">
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-      <!-- Begin Jekyll SEO tag v2.8.0 -->
-  <title>Gaming Unlimited | Explore!</title>
-  <meta name="generator" content="Jekyll v3.9.2" />
-  <meta property="og:title" content="Gaming Unlimited" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="description" content="Explore!" />
-  <meta property="og:description" content="Explore!" />
-  <link rel="canonical" href="http://localhost:4000/instructions.html" />
-  <meta property="og:url" content="http://localhost:4000/instructions.html" />
-  <meta property="og:site_name" content="Gaming Unlimited" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Gaming Unlimited" />
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","description":"Explore!","headline":"Gaming Unlimited","url":"http://localhost:4000/instructions.html"}</script>
-  <!-- End Jekyll SEO tag -->
-  
-      <link rel="stylesheet" href="/assets/css/style.css?v=61bcbdf898945511337ffaa8cdb605933cc2b07e">
-      <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-      <script src="/assets/js/respond.js"></script>
-      <!--[if lt IE 9]>
-        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
-      <!--[if lt IE 8]>
-      <link rel="stylesheet" href="/assets/css/ie.css">
-      <![endif]-->
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-      <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-  
-  <!-- Setup Google Analytics -->
-  
 <!DOCTYPE html>
 <html lang="en" onclick="jump()">
 <head>
@@ -54,4 +14,37 @@
     </div>
 </body>
 <script src="flappybird.js"></script>
-</html>
+</html> -->
+
+<body style="height: 100vh; background: #111; text-align: center;touch-action: manipulation;">
+    <canvas id="c" width="400" height="400"></canvas>
+    <script>
+      context = c.getContext("2d");
+      const bird = new Image();
+      bird.src = "/images/bird.png";
+      birdX = birdDY = score = bestScore = 0;
+      interval = birdSize = pipeWidth = topPipeBottomY = 24;
+      birdY = pipeGap = 200;
+      canvasSize = pipeX = 400;
+      c.onclick = () => (birdDY = 9) ;
+      setInterval(() => {
+        context.fillStyle = "skyblue";
+        context.fillRect(0,0,canvasSize,canvasSize); // Draw sky
+        birdY -= birdDY -= 0.5; // Gravity
+        context.drawImage(bird, birdX, birdY, birdSize * (524/374), birdSize); // Draw bird
+        context.fillStyle = "green";
+        pipeX -= 8; // Move pipe
+        pipeX < -pipeWidth && // Pipe off screen?
+          ((pipeX = canvasSize), (topPipeBottomY = pipeGap * Math.random())); // Reset pipe and randomize gap.
+        context.fillRect(pipeX, 0, pipeWidth, topPipeBottomY); // Draw top pipe
+        context.fillRect(pipeX, topPipeBottomY + pipeGap, pipeWidth, canvasSize); // Draw bottom pipe
+        context.fillStyle = "black";
+        context.fillText(score++, 9, 25); // Increase and draw score
+        bestScore = bestScore < score ? score : bestScore; // New best score?
+        context.fillText(`Best: ${bestScore}`, 9, 50); // Draw best score
+        (((birdY < topPipeBottomY || birdY > topPipeBottomY + pipeGap) && pipeX < birdSize * (524/374))// Bird hit pipe?
+         || birdY > canvasSize) && // Bird falls off screen
+        ((birdDY = 0), (birdY = 200), (pipeX = canvasSize), (score = 0)); // Bird died
+      }, interval)
+    </script>
+  </body>
