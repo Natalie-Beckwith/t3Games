@@ -48,10 +48,10 @@ const winFunction = (letter) => {
   // Display win message based on which player wins
   msgRef.innerHTML = letter == "X" ? "&#x1F389; <br> 'X' Wins" : "&#x1F389; <br> 'O' Wins";
   // Increment the appropriate win counter
-  if (letter === "X") {
+  if (letter == "X") {
     xWins++;
     document.getElementById('xWins').innerText = `X Wins: ${xWins}`;
-  } else {
+  } else if (letter == 'O'){
     oWins++;
     document.getElementById('oWins').innerText = `O Wins: ${oWins}`;
   }
