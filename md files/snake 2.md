@@ -9,22 +9,25 @@
     <style>
       #snakeboard
       {
-        top: 50%;
-        left: 50%;
-        margin:auto;      }
+        position: relative;
+        top: 35%;
+        left: 35%;
+        margin: auto;
+        }
       #score
       {
         text-align: center;
         font-size: 140px;
+        color: #e4eefa;
       }
     </style>
   </body>
 
   <script>
     const board_border = 'black';
-    const board_background = "white";
-    const snake_col = 'lightblue';
-    const snake_border = 'darkblue';
+    const board_background = "#4b9467";
+    const snake_col = '#4877b7';
+    const snake_border = '#e4eefa';
     
     let snake = [
       {x: 200, y: 200},
@@ -91,8 +94,8 @@
     }
 
     function drawFood() {
-      snakeboard_ctx.fillStyle = 'lightgreen';
-      snakeboard_ctx.strokestyle = 'darkgreen';
+      snakeboard_ctx.fillStyle = '#7f3136';
+      snakeboard_ctx.strokestyle = '#e4eefa';
       snakeboard_ctx.fillRect(food_x, food_y, 10, 10);
       snakeboard_ctx.strokeRect(food_x, food_y, 10, 10);
     }
