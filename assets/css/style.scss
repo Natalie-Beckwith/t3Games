@@ -29,9 +29,14 @@ h2, h5
     color: $red;
 }
 
-h3, h4
+h3
 {
     color: $yellow;
+}
+
+h4
+{
+  color: $blue;
 }
 
 p
@@ -63,11 +68,11 @@ hr
 
 #site-title
 {
-  font-size: 150px !important;
+  font-size: 115px !important;
   color: gb(249, 255, 233) !important;
   text-align: center !important;
   animation: glow 1s ease-in-out infinite alternate;
-  font-family:Impact;
+  font-family:monospace;
 }
 
 #site-description
@@ -75,7 +80,8 @@ hr
   color: rgb(249, 255, 233) !important;
   text-align: center !important;
   animation: glow 1s ease-in-out infinite alternate;
-  font-family:Impact;
+  font-family:monospace;
+  font-size: 24px;
 }
 
 @-webkit-keyframes glow {
