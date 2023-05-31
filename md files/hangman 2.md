@@ -95,7 +95,7 @@ p{
   height:30px;
   padding-top:10px;
   background:$white;
-  color:$base-color;
+  color:$white;
   cursor:pointer;
   @include corners(5px);
   border: solid 1px $white;
