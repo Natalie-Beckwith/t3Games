@@ -76,7 +76,7 @@
           localStorage.setItem('ID', data);
           console.log('Data saved in sessionStorage');
           // redirect on successful login
-          window.location.href = "https://pranaviinukurti.github.io/DelNorteMarketPlace/profile/"; // direct to profile once logged in
+          window.location.href = "https://natalie-beckwith.github.io/t3Games/profile.html"; // direct to profile once logged in
         })
         // catch fetch errors (ie Nginx ACCESS to server blocked)
         .catch(err => {
