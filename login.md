@@ -54,7 +54,7 @@
       console.log(data);
       const options = {
         method: 'POST',
-        mode: 'cors',
+        mode: 'no-cors',
         cache: 'no-cache',
         headers: {
           'Content-Type': 'application/json'
