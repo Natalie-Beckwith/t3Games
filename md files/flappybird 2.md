@@ -10,11 +10,11 @@
       canvasSize = pipeX = 400;
       c.onclick = () => (birdDY = 9) ;
       setInterval(() => {
-        context.fillStyle = "skyblue";
+        context.fillStyle = "#87aadb";
         context.fillRect(0,0,canvasSize,canvasSize); // Draw sky
         birdY -= birdDY -= 0.5; // Gravity
         context.drawImage(bird, birdX, birdY, birdSize * (524/374), birdSize); // Draw bird
-        context.fillStyle = "green";
+        context.fillStyle = "#4b9467";
         pipeX -= 8; // Move pipe
         pipeX < -pipeWidth && // Pipe off screen?
           ((pipeX = canvasSize), (topPipeBottomY = pipeGap * Math.random())); // Reset pipe and randomize gap.
@@ -35,26 +35,30 @@
     padding: 0;
     margin: 0;
 }
-#game{
+#game
+{
     width: 400px;
     height: 500px;
     border: 1px solid black;
     margin: auto;
     overflow: hidden;
 }
-#block{
+#block
+{
     width: 50px;
     height: 500px;
-    background-color: black;
+    background-color: #7f3136;
     position: relative;
     left: 400px;
     animation: block 2s infinite linear;
 }
-@keyframes block{
+@keyframes block
+{
     0%{left:400px}
     100%{left:-50px}
 }
-#hole{
+#hole
+{
     width: 50px;
     height: 150px;
     background-color: white;
@@ -63,10 +67,11 @@
     top: -500px;
     animation: block 2s infinite linear;
 }
-#character{
+#character
+{
     width: 20px;
     height: 20px;
-    background-color: red;
+    background-color: #7f3136;
     position: absolute;
     top: 100px;
     border-radius: 50%;
