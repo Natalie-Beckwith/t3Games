@@ -8,52 +8,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Connect 4</title>
 <body>
-    <h1 style="color:white;">Connect 4</h1>
+    <h1 style="color:#e4eefa;">Connect 4</h1>
     <h2 id="winner"></h2>
     <div id="board"></div>
 </body>
 </html>
 
 <style>
-body {
+body
+{
     text-align: center;
 }
 
-#board {
+#board
+{
     height: 540px;
     width: 630px;
-    background-color: blue;
-    border: 10px solid navy;
+    background-color: #4877b7;
+    border: 10px solid #04060b;
     
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
 
-.tile {
+.tile
+{
     height: 70px;
     width: 70px;
     margin: 5px;
 
     /* Circle */
-    background-color: white;
+    background-color: #e4eefa;
     border-radius: 50%;
-    border: 5px solid navy;
+    border: 5px solid #04060b;
 }
 
-.red-piece {
-    background-color: red;
+.red-piece
+{
+    background-color: #7f3136;
 }
 
-.yellow-piece {
-    background-color: yellow;
+.green-piece {
+    background-color: #4b9467;
 }
 </style>
 
 <script>
 
 var playerRed = "R";
-var playerYellow = "Y";
+var playerYellow = "G";
 var currPlayer = playerRed;
 
 var gameOver = false;
@@ -111,7 +115,7 @@ function setPiece() {
         currPlayer = playerYellow;
     }
     else {
-        tile.classList.add("yellow-piece");
+        tile.classList.add("green-piece");
         currPlayer = playerRed;
     }
 
@@ -176,7 +180,7 @@ function setWinner(r, c) {
     if (board[r][c] == playerRed) {
         winner.innerText = "Red Wins";             
     } else {
-        winner.innerText = "Yellow Wins";
+        winner.innerText = "Green Wins";
     }
     gameOver = true;
 }
