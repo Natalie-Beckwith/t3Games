@@ -32,80 +32,152 @@
 
 <style>
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #9f79f9, #66b2d8);
+  margin: 40px;
+  background-color: #04060b;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  color: #4877b7;
+}
+
+h2,
+h5 {
+  color: #7f3136;
+}
+
+h3 {
+  color: #4b9467;
+}
+
+h4 {
+  color: #4877b7;
+}
+
+p {
+  color: #e4eefa;
+}
+
+#title {
+  padding: 10px;
+  border: 3px solid #4b9467;
+  border-radius: 25px;
+  margin: 5px !important;
+  background-image: url("https://i.gifer.com/1IAH.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+hr {
+  border-width: 3px;
+  border-color: #4b9467;
+}
+
+#site-title {
+  font-size: 115px !important;
+  color: rgb(249, 255, 233) !important;
+  text-align: center !important;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-family: monospace;
+}
+
+#site-description {
+  color: rgb(249, 255, 233) !important;
+  text-align: center !important;
+  animation: glow 1s ease-in-out infinite alternate;
+  font-family: monospace;
+  font-size: 24px;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #4b9467, 0 0 40px #4b9467, 0 0 50px #4b9467, 0 0 60px #4b9467, 0 0 70px #4b9467;
   }
-  body {
-    height: 100vh;
-    background: linear-gradient(135deg, #9f79f9, #66b2d8);
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #a5af5e, 0 0 40px #a5af5e, 0 0 50px #a5af5e, 0 0 60px #a5af5e, 0 0 70px #a5af5e, 0 0 80px #a5af5e;
   }
-  html {
-    font-size: 16px;
-  }
-  .wrapper {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-  }
-  .container {
-    width: 70vmin;
-    height: 70vmin;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2vmin;
-  }
-  .button-option {
-    background: #ffffff;
-    height: 22vmin;
-    width: 22vmin;
-    border: none;
-    border-radius: 8px;
-    font-size: 12vmin;
-    color: #8137e1;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  }
-  #restart {
-    font-size: 1.3em;
-    padding: 1em;
-    border-radius: 8px;
-    background-color: #0a0027;
-    color: #ffffff;
-    border: none;
-    position: relative;
-    margin: 1.5em auto 0 auto;
-    display: block;
-  }
-  .popup {
-    background: linear-gradient(135deg, #9f79f9, #66b2d8);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    display: flex;
-    z-index: 2;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1em;
-    font-size: 12vmin;
-  }
-  #new-game {
-    font-size: 0.6em;
-    padding: 0.5em 1em;
-    background-color: #0a0027;
-    color: #ffffff;
-    border-radius: 0.2em;
-    border: none;
-  }
-  #message {
-    color: #ffffff;
-    text-align: center;
-    font-size: 1em;
-  }
-  .popup.hide {
-    display: none;
-  }
+}
+
+.wrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.container {
+  width: 70vmin;
+  height: 70vmin;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vmin;
+}
+
+.button-option {
+  background: #ffffff;
+  height: 22vmin;
+  width: 22vmin;
+  border: none;
+  border-radius: 8px;
+  font-size: 12vmin;
+  color: #8137e1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#restart {
+  font-size: 1.3em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #0a0027;
+  color: #ffffff;
+  border: none;
+  position: relative;
+  margin: 1.5em auto 0 auto;
+  display: block;
+}
+
+.popup {
+  background: linear-gradient(135deg, #9f79f9, #66b2d8);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 12vmin;
+}
+
+#new-game {
+  font-size: 0.6em;
+  padding: 0.5em 1em;
+  background-color: #0a0027;
+  color: #ffffff;
+  border-radius: 0.2em;
+  border: none;
+}
+
+#message {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1em;
+}
+
+.popup.hide {
+  display: none;
+}
 
   </style>
 
