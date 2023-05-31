@@ -1,65 +1,50 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>Numbers Guessing Games</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       text-align: center;
     }
-
-    h1 {
-      color: #333;
-    }
-
-    p {
-      color: #666;
-    }
-
     input[type="number"] {
       padding: 8px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 25px;
+      border: none;
     }
-
-    button {
+    button
+    {
       padding: 10px 20px;
       font-size: 16px;
-      background-color: #4CAF50;
-      color: #fff;
+      background-color: #e4eefa;
+      color: #101f26;
       border: none;
-      border-radius: 4px;
+      border-radius: 25px;
       cursor: pointer;
+      transition: width .2s, height, .2s;
     }
-
-    button:hover {
-      background-color: #45a049;
+    button:hover
+    {
+      background-color: #cbe3fb;
+      color: #4877b7;
     }
-
-    #feedback {
-      color: #f00;
+    #feedback
+    {
       font-weight: bold;
     }
   </style>
   <script>
     // Generate a random number between 1 and 100
     const randomNumber = Math.floor(Math.random() * 100) + 1;
-
     // Track the number of guesses
     let numberOfGuesses = 0;
-
     // Function to compare the user's guess with the random number
     function checkGuess() {
       // Get the user's guess from the input field
       const userGuess = Number(document.getElementById('guessInput').value);
-
       // Update the number of guesses
       numberOfGuesses++;
-
       // Get the feedback element
       const feedback = document.getElementById('feedback');
-
       // Check if the guess is correct
       if (userGuess === randomNumber) {
         feedback.textContent = `Congratulations! You guessed the number in ${numberOfGuesses} guesses.`;
@@ -68,17 +53,17 @@
       } else {
         feedback.textContent = 'Too low! Try again.';
       }
-
       // Clear the input field
       document.getElementById('guessInput').value = '';
     }
   </script>
 </head>
 <body>
-  <h1>Number Guessing Game</h1>
+  <h2>Number Guessing Game</h2>
   <p>Guess a number between 1 and 100:</p>
+  <br>
   <input type="number" id="guessInput">
-  <br><br>
+  <br><br><br><br><br><br><br><br><br>
   <button onclick="checkGuess()">Guess</button>
   <p id="feedback"></p>
 </body>
