@@ -30,7 +30,7 @@
       }, interval)
     </script>
   </body>
-<style>
+<!--<style>
 *{
     padding: 0;
     margin: 0;
@@ -77,7 +77,7 @@
     border-radius: 50%;
 }
 </style>
-
+-->
 <script>
 var block = document.getElementById("block");
 var hole = document.getElementById("hole");
