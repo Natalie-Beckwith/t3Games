@@ -47,7 +47,7 @@
 
 <h2>How to Play</h2>
 <br>
-<!-->
+<!--
 <button class="accordion">Tic-Tac-Toe</button>
 <div class="panel">
   <p>When you click play, a menu will appear with 4 different options for playing.</p>
