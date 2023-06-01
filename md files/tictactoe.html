@@ -39,7 +39,7 @@
 
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #9f79f9, #66b2d8);
+  background: linear-gradient(135deg, #323232bd, #363636);
   margin: 40px;
   background-color: #04060b;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -130,7 +130,7 @@ hr {
   border: none;
   border-radius: 8px;
   font-size: 12vmin;
-  color: #8137e1;
+  color: #0d0d0e;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -147,7 +147,7 @@ hr {
 }
 
 .popup {
-  background: linear-gradient(135deg, #9f79f9, #66b2d8);
+  background: linear-gradient(135deg, #0b0b0c, #3c3d3d);
   height: 100%;
   width: 100%;
   position: absolute;
