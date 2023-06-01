@@ -100,6 +100,3 @@ for(let item of items) {
     console.log(item);
 }
 ```
-
-In this tutorial, you learned what JavaScript is and the overview of the JavaScript language.
-
