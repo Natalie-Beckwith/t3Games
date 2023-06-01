@@ -29,7 +29,7 @@ overflow-x: hidden;
 #character{
     width: 20px;
     height: 50px;
-    background-color: red;
+    background-color: #e4eefa;
     position:relative;
     top: 150px;
 }
@@ -43,7 +43,7 @@ overflow-x: hidden;
     100%{top: 150px;}
 }
 #block{
-    background-color: blue;
+    background-color: #7f3136;
     width: 20px;
     height: 20px;
     position: relative;

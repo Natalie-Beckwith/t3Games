@@ -5,50 +5,45 @@
     /* CSS styles for the game interface */
     body {
       text-align: center;
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #04060b;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
-
-    h1 {
-      color: #7f3136;
-    }
-
-    #scrambledWord {
+    #scrambledWord
+    {
       font-size: 24px;
       margin-top: 20px;
-      color: #ffffff;
+      color: #e4eefa;
     }
-
-    #guessInput {
+    #guessInput
+    {
       margin-top: 20px;
       padding: 8px;
       font-size: 16px;
-      color: #ffffff;
-      background-color: #3a80c1;
+      color: #4877b7;
+      background-color: #e4eefa;
       border: none;
+      border-radius: 4px;
     }
-
-    button {
+    button
+    {
       margin-top: 10px;
       padding: 8px 16px;
       font-size: 16px;
-      background-color: #4877b7;
+      background-color: #4b9467;
       color: #e4eefa;
       border: none;
       cursor: pointer;
+      border-radius: 25px;
+      margin: 5px;
     }
-
-    #message {
+    #message
+    {
       margin-top: 20px;
       font-size: 18px;
-      color: #4b9467;
+      color: #4877b7;
     }
   </style>
 </head>
 <body>
-  <h1>Word Jumble Game</h1>
+  <h2>Word Jumble Game</h2>
   <p id="scrambledWord"></p>
   <input type="text" id="guessInput" placeholder="Enter your guess">
   <button onclick="checkGuess()">Check</button>
