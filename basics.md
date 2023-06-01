@@ -1,4 +1,4 @@
-# Javascript Lesson - What is Javscript 
+## Javascript Lesson - What is Javscript 
 
 
 * JavaScript is a programming language initially designed to interact with elements of web pages. 
