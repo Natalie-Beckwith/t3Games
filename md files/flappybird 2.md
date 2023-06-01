@@ -21,7 +21,7 @@
 #game{
     width: 400px;
     height: 500px;
-    border: 1px solid black;
+    border: 1px white;
     margin: auto;
     overflow: hidden;
 }
