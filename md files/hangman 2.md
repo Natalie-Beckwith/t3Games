@@ -1,14 +1,13 @@
-<!DOCTYPE html>
 <html>
 <head>
 <style>
   /* Variabes */  
-$orange: #ffa600;
-$green: #c1d72e;
-$blue: #82d2e5;
-$grey:#f3f3f3;
-$white: #fff;
+$green: #4b9467;
 $base-color:$green;
+$grey: #04060b;
+$white: #e4eefa;
+$blue: #4877b7;
+$red: #7f3136;
 /* Mixin's */ 
 @mixin transition {
   -webkit-transition: all 0.5s ease-in-out;
@@ -49,9 +48,6 @@ $base-color:$green;
   -khtml-border-radius: $radius; 
 }
 body {
-  background:$base-color;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  color:$white;
   height:100%;
   text-align:center;
   font-size:18px;
@@ -62,12 +58,10 @@ body {
   margin:0 auto;
 }
 canvas{
-  color:$white;
   border: $white dashed 2px;
   padding:15px;
 }
 h1, h2, h3 {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
 	text-transform: uppercase;
    margin:5px 0;
@@ -88,21 +82,19 @@ p{
   max-width:900px;
 }
 #alphabet li {
+  color: $white;
   float:left;
-  margin: 0 10px 10px 0;
+  margin: 0 3px 3px 0;
   list-style:none;
   width:35px;
   height:30px;
   padding-top:10px;
-  background:$white;
-  color:$white;
   cursor:pointer;
   @include corners(5px);
   border: solid 1px $white;
     &:hover{
       background:$base-color;
       border: solid 1px $white;
-      color:$white;
     }
 }
 #my-word {
@@ -135,8 +127,7 @@ p{
 button{
   @include corners (5px);
   background:$base-color;
-  color:$white;
-  border: solid 1px $white;
+  border-radius: 25px;
   text-decoration:none;
   cursor:pointer;
   font-size:1.2em;
@@ -147,8 +138,6 @@ button{
     &:hover{
       @include transition;
       background:$white;
-      border: solid 1px $white;
-      color:$base-color;
     }
 }
 @media (max-width: 767px) {
@@ -249,7 +238,7 @@ canvas =  function(){
   myStickman = document.getElementById("stickman");
   context = myStickman.getContext('2d');
   context.beginPath();
-  context.strokeStyle = "#fff";
+  context.strokeStyle = "#e4eefa";
   context.lineWidth = 2;
 };
   head = function(){
