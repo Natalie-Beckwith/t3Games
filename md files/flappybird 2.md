@@ -21,14 +21,14 @@
 #game{
     width: 400px;
     height: 500px;
-    border: 1px "#4b9467";
+    border: 1px solid black;
     margin: auto;
     overflow: hidden;
 }
 #block{
     width: 50px;
     height: 500px;
-    background-color: white;
+    background-color: black;
     position: relative;
     left: 400px;
     animation: block 2s infinite linear;
