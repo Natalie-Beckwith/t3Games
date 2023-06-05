@@ -1,11 +1,26 @@
 <html>
   <head>
   	<title>Snake Game</title>
+     <!-- load jQuery and DataTables scripts -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>var define = null;</script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+
   </head>
 
   <body>
     <div id="score">0</div>
     <canvas id="snakeboard" width="400" height="400"></canvas>
+    <table id="flaskTable" class="table" style="width:100%">
+    <thead id="flaskHead">
+        <tr>
+            <th>ID</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody id="flaskBody"></tbody>
+</table>
     <style>
       #snakeboard
       {
@@ -62,8 +77,11 @@
     // main function called repeatedly to keep the game running
     function main() {
 
-        if (has_game_ended()) return;
-
+        if (has_game_ended()){
+          $("#flaskBody").append('<tr><td>' + '1'+ '</td><td>' + score + '</td><td>');
+          $("#flaskTable").DataTable();
+          return;
+        }
         changing_direction = false;
         setTimeout(function onTick() {
         clear_board();
@@ -182,7 +200,7 @@
       const has_eaten_food = snake[0].x === food_x && snake[0].y === food_y;
       if (has_eaten_food) {
         // Increase score
-        score += 10;
+        score += 1;
         // Display score on screen
         document.getElementById('score').innerHTML = score;
         // Generate new food location
