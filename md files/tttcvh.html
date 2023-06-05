@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content=
+                "width=device-width, initial-scale=1.0">
+        <!-- CSS file Included -->
+        <link rel="stylesheet"
+              type="text/css" href="tic.css">
+        <!-- JavaScript file included -->
+        <script src="tic.js"></script>
+      </head>
+  <style>
+    /* CSS Code */
+    /* Heading */
+    /* 3*3 Grid */
+    #b1, #b2, #b3, #b4, #b5,
+    #b6, #b7, #b8, #b9
+    {
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        border-radius: 8px;
+        font-size: 75px;
+        text-align: center;
+        background-color: #e4eefa;
+        color: #4877b7;
+        margin: 5px 5px;
+        border:none;
+        font-family: "Cursive";
+    }
+  
+    /* Reset Button */
+    #but {
+        box-sizing: border-box;
+        padding: 10px;
+        border: none;
+        margin: auto;
+        border-radius: 25px;
+        background-color: #4b9467;
+        color: #e4eefa;
+        font-size: 20px;
+        cursor: pointer;
+    }
+  
+    /* Player turn space */
+    #print
+    {
+        color: #7f3136;
+        font-size: 18px;
+        margin: 5px;
+    }
+  
+    /* Main Container */
+    #main {
+        text-align: center;
+    }
+  
+  </style>
+<body>
+  <h1>Computer vs Human Tic Tac Toe</h1>
+
+  <table>
+    <tr>
+      <td class="box" onclick="playTurn(0, 0)"></td>
+      <td class="box" onclick="playTurn(0, 1)"></td>
+      <td class="box" onclick="playTurn(0, 2)"></td>
+    </tr>
+    <tr>
+      <td class="box" onclick="playTurn(1, 0)"></td>
+      <td class="box" onclick="playTurn(1, 1)"></td>
+      <td class="box" onclick="playTurn(1, 2)"></td>
+    </tr>
+    <tr>
+      <td class="box" onclick="playTurn(2, 0)"></td>
+      <td class="box" onclick="playTurn(2, 1)"></td>
+      <td class="box" onclick="playTurn(2, 2)"></td>
+    </tr>
+  </table>
+
+  <h2 id="print">Your Turn</h2>
+
+  <button onclick="resetGame()">Reset</button>
+
+  <script>
+    // Function called whenever the human player clicks on a box
+    function playTurn(row, col) {
+      var box = document.getElementsByTagName("td")[3 * row + col];
+      if (box.innerHTML === '') {
+        box.innerHTML = 'X';
+        checkResult();
+
+        // Check if the game is not over
+        if (!isGameOver()) {
+          // Make the computer's move after a short delay
+          setTimeout(makeComputerMove, 500);
+        }
+      }
+    }
+
+    // Function to check if the game is over
+    function isGameOver() {
+      var boxes = document.getElementsByClassName('box');
+      for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].innerHTML === '') {
+          return false; // The game is not over
+        }
+      }
+      return true; // All boxes are filled, the game is over
+    }
+
+    // Function to make the computer's move
+    function makeComputerMove() {
+      var emptyBoxes = [];
+      var boxes = document.getElementsByClassName('box');
+      for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].innerHTML === '') {
+          emptyBoxes.push(boxes[i]);
+        }
+      }
+
+      // Choose a random empty box for the computer's move
+      var randomIndex = Math.floor(Math.random() * emptyBoxes.length);
+      var box = emptyBoxes[randomIndex];
+      box.innerHTML = 'O';
+      checkResult();
+    }
+
+    // Function to check if a player has won or if the match is a tie
+    function checkResult() {
+      // ... (rest of the Tic Tac Toe logic from the previous code)
+
+      // Update the print element accordingly
+      document.getElementById('print').innerHTML = "Your Turn";
+    }
+
+   // Function to reset the game
+   function resetGame() {
+      var boxes = document.getElementsByClassName('box');
+      for (var i = 0; i < boxes.length; i++) {
+        boxes[i].innerHTML = '';
+      }
+      document.getElementById('print').innerHTML = "Your Turn";
+    }
+  </script>
+</body>
+</html>
