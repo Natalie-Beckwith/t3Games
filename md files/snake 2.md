@@ -78,7 +78,21 @@
     function main() {
 
         if (has_game_ended()){
-          $("#flaskBody").append('<tr><td>' + '1'+ '</td><td>' + score + '</td></tr>');
+          // update scores and store in local storage
+          let scores = localStorage.getItem("scores");
+          if(scores){
+            scores = scores + "," + score;
+          }else{
+            scores = score;
+          }
+          localStorage.setItem("scores",scores);
+
+          let scoreArray = scores.split(",");
+
+          scoreArray.forEach((element, idx) => {
+            $("#flaskBody").append('<tr><td>' + idx + '</td><td>' + element + '</td></tr>');
+          });
+
           $("#flaskTable").DataTable();
           return;
         }
