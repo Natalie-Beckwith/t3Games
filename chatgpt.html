@@ -50,7 +50,9 @@
       });
 
       const data = await response.json();
-      return data.choices[0].message.content;
+      const responseMessage = data.choices[0].message.content;
+      displayMessage('user', message);
+      displayMessage('assistant', responseMessage);
     }
 
     function displayMessage(role, content) {
@@ -69,9 +71,7 @@
       const message = input.value.trim();
 
       if (message !== '') {
-        displayMessage('user', message);
-        const response = await sendMessage(message);
-        displayMessage('assistant', response);
+        await sendMessage(message);
         input.value = '';
       }
     });
