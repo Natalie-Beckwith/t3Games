@@ -1,30 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Trivia API Example</title>
+  <title>Gaming Chat</title>
+  <style>
+    #chat-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #chat-messages {
+      margin-bottom: 10px;
+    }
+
+    .user {
+      color: blue;
+    }
+
+    .assistant {
+      color: green;
+    }
+  </style>
 </head>
 <body>
-  <button id="getTriviaBtn">Get Trivia</button>
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <form id="chat-form">
+      <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
 
   <script>
-    const getTriviaBtn = document.getElementById('getTriviaBtn');
-    
-    getTriviaBtn.addEventListener('click', function () {
-      const xhr = new XMLHttpRequest();
-      xhr.withCredentials = true;
+    const apiKey = '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';
+    const endpoint = 'https://api.openai.com/v1/chat/completions';
 
-      xhr.addEventListener('readystatechange', function () {
-        if (this.readyState === this.DONE) {
-          console.log(this.responseText);
-          // Process the response here
-        }
+    async function sendMessage(message) {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer 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`
+        },
+        body: JSON.stringify({
+          'messages': [{ 'role': 'system', 'content': 'You are Player 1' }, { 'role': 'user', 'content': message }]
+        })
       });
 
-      xhr.open('GET', 'https://trivia-by-api-ninjas.p.rapidapi.com/v1/trivia');
-      xhr.setRequestHeader('X-RapidAPI-Key', 'b7497e5bbbmsh13875b44b129b4dp1a492fjsnf27f047e11f5');
-      xhr.setRequestHeader('X-RapidAPI-Host', 'trivia-by-api-ninjas.p.rapidapi.com');
+      const data = await response.json();
+      const responseMessage = data.choices[0].message.content;
+      return responseMessage;
+    }
 
-      xhr.send();
+    function displayMessage(role, content) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add(role);
+      messageElement.textContent = content;
+      document.querySelector('#chat-messages').appendChild(messageElement);
+    }
+
+    const form = document.querySelector('#chat-form');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const input = document.querySelector('#message-input');
+      const message = input.value.trim();
+
+      if (message !== '') {
+        const response = await sendMessage(message);
+        displayMessage('user', message);
+        displayMessage('assistant', response);
+        input.value = '';
+      }
     });
   </script>
 </body>
