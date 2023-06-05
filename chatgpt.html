@@ -58,11 +58,10 @@
       const messageElement = document.createElement('div');
       messageElement.classList.add(role);
       messageElement.textContent = content;
-      chatMessages.appendChild(messageElement);
+      document.querySelector('#chat-messages').appendChild(messageElement);
     }
 
     const form = document.querySelector('#chat-form');
-    const chatMessages = document.querySelector('#chat-messages');
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
