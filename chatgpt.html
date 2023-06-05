@@ -42,7 +42,7 @@
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer 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`
+          'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
           'messages': [{ 'role': 'system', 'content': 'You are Player 1' }, { 'role': 'user', 'content': message }]
