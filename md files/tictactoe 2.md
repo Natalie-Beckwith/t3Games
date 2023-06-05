@@ -14,26 +14,17 @@
     <br>
     <!-- Game Instructions -->
     <!-- 3*3 grid of Boxes -->
-    <input type="text" id="b1" onclick=
-            "myfunc_3(); myfunc();" readonly>
-    <input type="text" id="b2" onclick=
-            "myfunc_4(); myfunc();" readonly>
-    <input type="text" id="b3" onclick=
-            "myfunc_5(); myfunc();" readonly>
-    <br>
-    <input type="text" id="b4" onclick=
-            "myfunc_6(); myfunc();" readonly>
-    <input type="text" id="b5" onclick=
-            "myfunc_7(); myfunc();" readonly>
-    <input type="text" id="b6" onclick=
-            "myfunc_8(); myfunc();" readonly>
-    <br>
-    <input type="text" id="b7" onclick=
-            "myfunc_9(); myfunc();" readonly>
-    <input type="text" id="b8" onclick=
-            "myfunc_10();myfunc();" readonly>
-    <input type="text" id="b9" onclick=
-            "myfunc_11();myfunc();" readonly>
+    <input type="text" id="b1" class="box" onclick="playTurn('b1')">
+<input type="text" id="b2" class="box" onclick="playTurn('b2')">
+<input type="text" id="b3" class="box" onclick="playTurn('b3')">
+<br>
+<input type="text" id="b4" class="box" onclick="playTurn('b4')">
+<input type="text" id="b5" class="box" onclick="playTurn('b5')">
+<input type="text" id="b6" class="box" onclick="playTurn('b6')">
+<br>
+<input type="text" id="b7" class="box" onclick="playTurn('b7')">
+<input type="text" id="b8" class="box" onclick="playTurn('b8')">
+<input type="text" id="b9" class="box" onclick="playTurn('b9')">
     <!-- Grid end here  -->
     <br><br>
     <!-- Button to reset game -->
