@@ -78,7 +78,7 @@
     function main() {
 
         if (has_game_ended()){
-          $("#flaskBody").append('<tr><td>' + '1'+ '</td><td>' + score + '</td><td>');
+          $("#flaskBody").append('<tr><td>' + '1'+ '</td><td>' + score + '</td></tr>');
           $("#flaskTable").DataTable();
           return;
         }
