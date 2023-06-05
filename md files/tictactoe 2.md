@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
   <head>
@@ -24,6 +23,15 @@
       color: #e4eefa;
       font-size: 20px;
       cursor: pointer;
+      text-align: center;
+  }
+  #h1
+  {
+        text-align: center;  
+  }
+  #h2
+  {
+        text-align: center;
   }
   /* Player turn space */
   #print
