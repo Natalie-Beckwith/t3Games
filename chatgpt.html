@@ -50,7 +50,7 @@
       });
 
       const data = await response.json();
-      alert("choices " + data);
+      alert("choices " + JSON.stringify(data));
       const responseMessage = data.choices[0].message.content;
       return responseMessage;
     }
