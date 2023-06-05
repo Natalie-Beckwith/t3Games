@@ -34,7 +34,7 @@
   </div>
 
   <script>
-    const apiKey = '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';
+    const apiKey = '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';
     const endpoint = 'https://api.openai.com/v1/chat/completions';
 
     async function sendMessage(message) {
@@ -42,7 +42,7 @@
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer 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`
+          'Authorization': `Bearer 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`
         },
         body: JSON.stringify({
           'messages': [{ 'role': 'system', 'content': 'You are Player 1' }, { 'role': 'user', 'content': message }]
