@@ -1,62 +1,25 @@
-## The Reunion Project
+## The Project
 
-Usage
+Gaming Unlimited
+> Project description and background knowledge, serving as an overview for the website.
 
-1. Midnight Theme. Use the GitHub Pages [Midnight Theme](https://github.com/pages-themes/midnight/blob/master/README.md) as a resource.  This project started with customization of _layouts/default.html from the Midnight Theme.  If you wanted to use a different [GitHub Pages Themes](https://pages.github.com/themes/), you would similarly change `_layouts/default.html` from repo used to support that theme.  Observe comment at top of _layouts/default.html ...
+1. This project is aimed create a fun and safe space to learn about Javascript with no background knowledge and see how the Javascript language can be used to create games. We have chosen to focus on and create a variety of games for Mr. Mortensen to add to his blog for next year. The purpose of these games will be to encourage the students next year to not only explore Mr. M's blog, but also realize how fun coding can be while encouraging them to create code for their own games or personal projects. Some examples of what our games will include are a personal version of "The Dinosaur Game," "Poker," "Tic-Tac-Toe," and "Connect4." Along with the games being added to Mr. M's blog, beginner lessons on Javascript are also available on the website that can be incorporated into Mr. M's lessons where he can explain the code and how it works in regards to variables, objects, classes, and the general concepts included in this language.
+2. This website is hosted on Github pages with all of the coding being in one of the three following languages: CSS, HTML, or Javascript. However there is an account database on our that is fetching data from a backend repository created in Trimester 2 by Pranavi's previous scrum team. Due to deployment and merge conflicts however, this database has been taken down by the repository and no longer works. 
 
-```html
-<!-- 
-  _layouts/default.html
-  customization to original Midnight theme 
-  found through GitHub Pages Themes
- -->
-```
+Instructions
+> How to recreate this website if you ever wish to do so for future classes or personal usage.
 
-2. Preview Site (Option A) - [Testing your GitHub Pages site locally with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).  This instruction provides instructions for ruby `Gemfile`,`bundle install`.  As an addition add `.gitignore` to avoid seeing build files in commit.   After pre-requisites run this command to obtain prompt for web server ...
+1. Create a Github Pages repository to serve as the website's repository.
+2. Add a style.scss file that includes a copy of our website's basic styling or is modified to better reflect your own styling preference. Our website style consists of dark backgrounds for the pages throughout the website. In regards to text, muted colors are used to dinstinguish between Titles, Headers, and Body Text (red, green, and white respectively). 
+3. Create a home.html file that includes the navbar for the website. Our home.html file included the styling for the navbar (blue coloring that turns red when hovering with white text), the actual navbar (including Home, Instructions, the Games, Sign-Up, Login, and Profile, and the Javascript Lessons) with dropdowns for "Play," "Account," and "Javascript Lessons," along with a function to allow people to go to the top of a page with the click of a button after scrolling down in a page. 
+4. Create different .md files for each of the games that you wish to include. Our website includes: Connect4, The Dinosaur Game, Snake, Tic-Tac-Toe, Hangman, Word Jumble, Memory Game, Number Guess, and Poker. The code for each of these games includes individual HTML, CSS for styling, and Javascript that can be copied for easy transfer of the games. 
+5. Create a .md file for each of the following Account pages: Sign-Up, Login, and Profile. These files included individual HTML, CSS, and Javascript which can be copied for easy transferring of this database. Both the Sign-Up and Login files include forms that require input to be submitted which are validated and updated in a database that is fetched from a different spring portfolio backend repository. This database currently isn't working but the code for this database can accomplished by creating a spring portfolio repository that is forked from this one: https://github.com/PranaviInukurti/t6-tri2-spring-portfolio, copying code from the Person folder in the following pathway: src/main/java/com/nighthawk/spring_portfolio/mvc/person. Once this backend repository is deployed via AWS EC2 Instance, this databased can be fetched (as seen in our Sign-Up and Login files) using that backend's url. 
+6. Finally, create .md files for each of the Javascript Lessons. Our website includes 6 different lessons taken from a variety of sources to start off on the basics of Javascript. These lessons can be copied off of our Lesson files for easier transferring of lesson information: Basics, Syntax, Variables, Data Types, Objects, and Arrays. 
+7. Finally, your website is set up! In order to maintain organization of your repository, feel free to move separate .md files into their categories. For example the game files can be moved into a "games" folder. In order to fix formatting on your website, play around with the css of our website and modify what you don't like to personalize your recreation. Finally, remember to enjoy the process and to code, code, code. 
 
-```bash
-bundle exec jekyll serve -H 0.0.0.0 -P 4001 # -H and -P are optional
-```
-3. Install Nix and run using a Nix shell (Option B).  This should be quicker than Docker and more reliable than previous.
+Notes for the Future
+> These include things to improve on our website along with important notes about the website.
 
-```bash
-sh <(curl -L https://nixos.org/nix/install) # installs nix requires root password
-
-# restart terminal as shell is updated, then cd ~/vscode/project-dir assuming you have it cloned
-
-nix-shell # start shell, aka nix os virtual environment
-code . # activate VSCode in current directory
-
-# open vscode terminal
-
-bundle install # only need to run once, first time. If this command doesn't work, delete your github repo, and reclone it. 
-
-bundle exec jekyll serve # run server
-
-bundle exec jekyll serve --livereload --force_polling # if you are on WSL/windows and the above command doesn't work, try this.
-
-```
-
-4. Preview Site (Option C) - [GitHub Pages Ruby Gem](https://github.com/github/pages-gem) has additional information on making a local server.  Ruby requirements are the same: `Gemfile`,`bundle install`.   This README looks like basis of FastPages `make server` as it uses Docker and shows how to setup a `Makefile`.
-
-5. Customizing style (CSS).  This project uses `/assets/css/style.scss` as the location to customize your CSS. To avoid warnings in VSCode make sure you install `SCSS IntelliSense` plugin.  To understand default style, make sure you ***Preview Site*** and refer to build generated `_site/assets/css/style.css` (this is worth 1000 lectures).  For the reunion site `gallery.md` uses custom style from `assets/css/style.css` to support 3 images per row.  Observe file and position of import and custom CSS, order is important as clarified in Midnight Theme readme. ...
-
-```css
----
----
-
-@import "{{ site.theme }}";
-
-/* "row style" is flexible size and aligns pictures in center */
-.row {
-    align-items: center;
-    display: flex;
-  }
-  
-  /* "column style" is one-third of the width with padding */
-  .column {
-    flex: 33.33%;
-    padding: 5px;
-  }
-```
-
+1. Our website account database no longer is operating since it was fetched from a backend repository that no longer hosts the files regarding this database. However, to have an account database running on your website, use the above instructions to help you. 
+2. Our website is dynamic and can be modified to fit more or less games, more or less lessons, etc. to better fit your needs and requirements.
+3. Our website, although being at a good position at the moment, is still not considered finished and can be further polished and edited to better match your visions. 
