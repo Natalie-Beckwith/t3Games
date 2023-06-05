@@ -51,8 +51,7 @@
 
       const data = await response.json();
       const responseMessage = data.choices[0].message.content;
-      displayMessage('user', message);
-      displayMessage('assistant', responseMessage);
+      return responseMessage;
     }
 
     function displayMessage(role, content) {
@@ -71,7 +70,9 @@
       const message = input.value.trim();
 
       if (message !== '') {
-        await sendMessage(message);
+        const response = await sendMessage(message);
+        displayMessage('user', message);
+        displayMessage('assistant', response);
         input.value = '';
       }
     });
