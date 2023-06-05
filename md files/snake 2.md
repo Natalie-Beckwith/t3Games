@@ -90,7 +90,8 @@
           let scoreArray = scores.split(",");
 
           scoreArray.forEach((element, idx) => {
-            $("#flaskBody").append('<tr><td>' + idx + '</td><td>' + element + '</td></tr>');
+            let index = idx + 1 ;
+            $("#flaskBody").append('<tr><td>' + index + '</td><td>' + element + '</td></tr>');
           });
 
           $("#flaskTable").DataTable();
