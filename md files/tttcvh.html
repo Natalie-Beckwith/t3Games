@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content=
-                "width=device-width, initial-scale=1.0">
-        <!-- CSS file Included -->
-        <link rel="stylesheet"
-              type="text/css" href="tic.css">
-        <!-- JavaScript file included -->
-        <script src="tic.js"></script>
-      </head>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     /* CSS Code */
     /* Heading */
     /* 3*3 Grid */
-    #b1, #b2, #b3, #b4, #b5,
-    #b6, #b7, #b8, #b9
-    {
+    #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9 {
         width: 150px;
         height: 150px;
         margin: auto;
@@ -25,10 +16,10 @@
         background-color: #e4eefa;
         color: #4877b7;
         margin: 5px 5px;
-        border:none;
+        border: none;
         font-family: "Cursive";
     }
-  
+
     /* Reset Button */
     #but {
         box-sizing: border-box;
@@ -41,105 +32,315 @@
         font-size: 20px;
         cursor: pointer;
     }
-  
+
     /* Player turn space */
-    #print
-    {
+    #print {
         color: #7f3136;
         font-size: 18px;
         margin: 5px;
     }
-  
+
     /* Main Container */
     #main {
         text-align: center;
     }
-  
   </style>
+</head>
 <body>
-  <h1>Computer vs Human Tic Tac Toe</h1>
-
-  <table>
-    <tr>
-      <td class="box" onclick="playTurn(0, 0)"></td>
-      <td class="box" onclick="playTurn(0, 1)"></td>
-      <td class="box" onclick="playTurn(0, 2)"></td>
-    </tr>
-    <tr>
-      <td class="box" onclick="playTurn(1, 0)"></td>
-      <td class="box" onclick="playTurn(1, 1)"></td>
-      <td class="box" onclick="playTurn(1, 2)"></td>
-    </tr>
-    <tr>
-      <td class="box" onclick="playTurn(2, 0)"></td>
-      <td class="box" onclick="playTurn(2, 1)"></td>
-      <td class="box" onclick="playTurn(2, 2)"></td>
-    </tr>
-  </table>
-
-  <h2 id="print">Your Turn</h2>
-
-  <button onclick="resetGame()">Reset</button>
+  <div id="main">
+    <h2>Tic-Tac-Toe</h2>
+    <br>
+    <!-- Game Instructions -->
+    <!-- 3*3 grid of Boxes -->
+    <input type="text" id="b1" onclick="myfunc_3(); myfunc();" readonly>
+    <input type="text" id="b2" onclick="myfunc_4(); myfunc();" readonly>
+    <input type="text" id="b3" onclick="myfunc_5(); myfunc();" readonly>
+    <br>
+    <input type="text" id="b4" onclick="myfunc_6(); myfunc();" readonly>
+    <input type="text" id="b5" onclick="myfunc_7(); myfunc();" readonly>
+    <input type="text" id="b6" onclick="myfunc_8(); myfunc();" readonly>
+    <br>
+    <input type="text" id="b7" onclick="myfunc_9(); myfunc();" readonly>
+    <input type="text" id="b8" onclick="myfunc_10();myfunc();" readonly>
+    <input type="text" id="b9" onclick="myfunc_11();myfunc();" readonly>
+    <!-- Grid ends here -->
+    <br><br>
+    <!-- Button to reset game -->
+    <button id="but" onclick="myfunc_2()">RESET</button>
+    <br>
+    <!-- Space to show player turn -->
+    <p id="print"></p>
+  </div>
 
   <script>
-    // Function called whenever the human player clicks on a box
-    function playTurn(row, col) {
-      var box = document.getElementsByTagName("td")[3 * row + col];
-      if (box.innerHTML === '') {
-        box.innerHTML = 'X';
-        checkResult();
+    // Function called whenever user clicks on any box
+    function myfunc() {
+      // Setting DOM to all boxes or input fields
+      var b1, b2, b3, b4, b5, b6, b7, b8, b9;
+      b1 = document.getElementById("b1").value;
+      b2 = document.getElementById("b2").value;
+      b3 = document.getElementById("b3").value;
+      b4 = document.getElementById("b4").value;
+      b5 = document.getElementById("b5").value;
+      b6 = document.getElementById("b6").value;
+      b7 = document.getElementById("b7").value;
+      b8 = document.getElementById("b8").value;
+      b9 = document.getElementById("b9").value;
 
-        // Check if the game is not over
-        if (!isGameOver()) {
-          // Make the computer's move after a short delay
-          setTimeout(makeComputerMove, 500);
+      // Checking if Player X won or not and after that disabling all the other fields
+      if (
+        (b1 == "x" || b1 == "X") &&
+        (b2 == "x" || b2 == "X") &&
+        (b3 == "x" || b3 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b1 == "x" || b1 == "X") &&
+        (b4 == "x" || b4 == "X") &&
+        (b7 == "x" || b7 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b7 == "x" || b7 == "X") &&
+        (b8 == "x" || b8 == "X") &&
+        (b9 == "x" || b9 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b3 == "x" || b3 == "X") &&
+        (b6 == "x" || b6 == "X") &&
+        (b9 == "x" || b9 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b1 == "x" || b1 == "X") &&
+        (b5 == "x" || b5 == "X") &&
+        (b9 == "x" || b9 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b3 == "x" || b3 == "X") &&
+        (b5 == "x" || b5 == "X") &&
+        (b7 == "x" || b7 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b2 == "x" || b2 == "X") &&
+        (b5 == "x" || b5 == "X") &&
+        (b8 == "x" || b8 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      } else if (
+        (b4 == "x" || b4 == "X") &&
+        (b5 == "x" || b5 == "X") &&
+        (b6 == "x" || b6 == "X")
+      ) {
+        document.getElementById("print").innerHTML = "Player X won";
+        disableAllBoxes();
+        window.alert("Player X won");
+      }
+      // Checking if Player X finished
+
+      // Checking for Player 0 starts, whether Player 0 won or not, and disabling all the other fields
+      else if (
+        (b1 == "0" || b1 == "0") &&
+        (b2 == "0" || b2 == "0") &&
+        (b3 == "0" || b3 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b1 == "0" || b1 == "0") &&
+        (b4 == "0" || b4 == "0") &&
+        (b7 == "0" || b7 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b7 == "0" || b7 == "0") &&
+        (b8 == "0" || b8 == "0") &&
+        (b9 == "0" || b9 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b3 == "0" || b3 == "0") &&
+        (b6 == "0" || b6 == "0") &&
+        (b9 == "0" || b9 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b1 == "0" || b1 == "0") &&
+        (b5 == "0" || b5 == "0") &&
+        (b9 == "0" || b9 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b3 == "0" || b3 == "0") &&
+        (b5 == "0" || b5 == "0") &&
+        (b7 == "0" || b7 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b2 == "0" || b2 == "0") &&
+        (b5 == "0" || b5 == "0") &&
+        (b8 == "0" || b8 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      } else if (
+        (b4 == "0" || b4 == "0") &&
+        (b5 == "0" || b5 == "0") &&
+        (b6 == "0" || b6 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Player 0 won";
+        disableAllBoxes();
+        window.alert("Player 0 won");
+      }
+      // Checking if Player 0 finished
+
+      // Checking for a tie
+      else if (
+        (b1 == "X" || b1 == "0") &&
+        (b2 == "X" || b2 == "0") &&
+        (b3 == "X" || b3 == "0") &&
+        (b4 == "X" || b4 == "0") &&
+        (b5 == "X" || b5 == "0") &&
+        (b6 == "X" || b6 == "0") &&
+        (b7 == "X" || b7 == "0") &&
+        (b8 == "X" || b8 == "0") &&
+        (b9 == "X" || b9 == "0")
+      ) {
+        document.getElementById("print").innerHTML = "Match Tie";
+        window.alert("Match Tie");
+      } else {
+        // Printing the current player's turn
+        if (flag == 1) {
+          document.getElementById("print").innerHTML = "Player X Turn";
+        } else {
+          document.getElementById("print").innerHTML = "Player 0 Turn";
         }
       }
     }
 
-    // Function to check if the game is over
-    function isGameOver() {
-      var boxes = document.getElementsByClassName('box');
-      for (var i = 0; i < boxes.length; i++) {
-        if (boxes[i].innerHTML === '') {
-          return false; // The game is not over
-        }
-      }
-      return true; // All boxes are filled, the game is over
+    // Function to reset the game
+    function myfunc_2() {
+      location.reload();
     }
 
-    // Function to make the computer's move
-    function makeComputerMove() {
-      var emptyBoxes = [];
-      var boxes = document.getElementsByClassName('box');
+    // Function to disable all the boxes
+    function disableAllBoxes() {
+      var boxes = document.getElementsByTagName("input");
       for (var i = 0; i < boxes.length; i++) {
-        if (boxes[i].innerHTML === '') {
-          emptyBoxes.push(boxes[i]);
-        }
+        boxes[i].disabled = true;
       }
-
-      // Choose a random empty box for the computer's move
-      var randomIndex = Math.floor(Math.random() * emptyBoxes.length);
-      var box = emptyBoxes[randomIndex];
-      box.innerHTML = 'O';
-      checkResult();
     }
 
-    // Function to check if a player has won or if the match is a tie
-    function checkResult() {
-      // ... (rest of the Tic Tac Toe logic from the previous code)
-
-      // Update the print element accordingly
-      document.getElementById('print').innerHTML = "Your Turn";
+    // Here onwards, functions to check the turn of the player and set the value X or 0 accordingly
+    flag = 1;
+    function myfunc_3() {
+      if (flag == 1) {
+        document.getElementById("b1").value = "X";
+        document.getElementById("b1").disabled = true;
+        flag = 0;
+        myfunc();
+      }
     }
 
-   // Function to reset the game
-   function resetGame() {
-      var boxes = document.getElementsByClassName('box');
-      for (var i = 0; i < boxes.length; i++) {
-        boxes[i].innerHTML = '';
+    function myfunc_4() {
+      if (flag == 1) {
+        document.getElementById("b2").value = "X";
+        document.getElementById("b2").disabled = true;
+        flag = 0;
+        myfunc();
       }
-      document.getElementById('print').innerHTML = "Your Turn";
+    }
+
+    function myfunc_5() {
+      if (flag == 1) {
+        document.getElementById("b3").value = "X";
+        document.getElementById("b3").disabled = true;
+        flag = 0;
+        myfunc();
+      }
+    }
+
+    function myfunc_6() {
+      if (flag == 1) {
+        document.getElementById("b4").value = "X";
+        document.getElementById("b4").disabled = true;
+        flag = 0;
+        myfunc();
+      }
+    }
+
+    function myfunc_7() {
+      if (flag == 1) {
+        document.getElementById("b5").value = "X";
+        document.getElementById("b5").disabled = true;
+        flag = 0;
+        myfunc();
+      }
+    }
+
+    function myfunc_8() {
+      if (flag == 1) {
+        document.getElementById("b6").value = "X";
+        document.getElementById("b6").disabled = true;
+        flag = 0;
+        myfunc();
+      }
+    }
+
+    function myfunc_9() {
+      if (flag == 1) {
+        document.getElementById("b7").value = "X";
+        document.getElementById("b7").disabled = true;
+        flag = 0;
+        myfunc();
+      }
+    }
+
+    function myfunc_10() {
+      if (flag == 1) {
+        document.getElementById("b8").value = "X";
+        document.getElementById("b8").disabled = true;
+        flag = 0;
+        myfunc();
+      }
+    }
+
+    function myfunc_11() {
+      if (flag == 1) {
+        document.getElementById("b9").value = "X";
+        document.getElementById("b9").disabled = true;
+        flag = 0;
+        myfunc();
+      }
     }
   </script>
 </body>
