@@ -35,6 +35,10 @@
         font-size: 140px;
         color: #e4eefa;
       }
+      .dataTables_wrapper
+      {
+        background-color: white;
+      }
     </style>
   </body>
 
