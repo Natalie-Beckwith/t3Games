@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gaming Chat</title>
+  <style>
+    #chat-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #chat-messages {
+      margin-bottom: 10px;
+    }
+
+    .user {
+      color: blue;
+    }
+
+    .assistant {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-messages"></div>
+    <form id="chat-form">
+      <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const apiKey = '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';
+    const endpoint = 'https://api.openai.com/v1/chat/completions';
+
+    async function sendMessage(message) {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer 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`
+        },
+        body: JSON.stringify({
+          'messages': [{ 'role': 'system', 'content': 'You are Player 1' }, { 'role': 'user', 'content': message }]
+        })
+      });
+
+      const data = await response.json();
+      const responseMessage = data.choices[0].message.content;
+      return responseMessage;
+    }
+
+    function displayMessage(role, content) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add(role);
+      messageElement.textContent = content;
+      document.querySelector('#chat-messages').appendChild(messageElement);
+    }
+
+    const form = document.querySelector('#chat-form');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const input = document.querySelector('#message-input');
+      const message = input.value.trim();
+
+      if (message !== '') {
+        const response = await sendMessage(message);
+        displayMessage('user', message);
+        displayMessage('assistant', response);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>

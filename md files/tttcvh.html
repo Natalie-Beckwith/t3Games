@@ -1,0 +1,173 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="tic.css">
+  <script src="tic.js"></script>
+</head>
+<body>
+  <div id="main">
+    <h2>Tic-Tac-Toe</h2>
+    <br>
+    <input type="text" id="b1" onclick="playerMove(1);" readonly>
+    <input type="text" id="b2" onclick="playerMove(2);" readonly>
+    <input type="text" id="b3" onclick="playerMove(3);" readonly>
+    <br>
+    <input type="text" id="b4" onclick="playerMove(4);" readonly>
+    <input type="text" id="b5" onclick="playerMove(5);" readonly>
+    <input type="text" id="b6" onclick="playerMove(6);" readonly>
+    <br>
+    <input type="text" id="b7" onclick="playerMove(7);" readonly>
+    <input type="text" id="b8" onclick="playerMove(8);" readonly>
+    <input type="text" id="b9" onclick="playerMove(9);" readonly>
+    <br><br>
+    <button id="but" onclick="resetGame();">RESET</button>
+    <br>
+    <p id="print"></p>
+  </div>
+</body>
+<style>
+  /* CSS Code */
+h2 {
+  color: #4877b7;
+  font-family: "Cursive";
+}
+
+input[type="text"] {
+  width: 150px;
+  height: 150px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 75px;
+  text-align: center;
+  background-color: #e4eefa;
+  color: #4877b7;
+  border: none;
+  font-family: "Cursive";
+}
+
+#but {
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  margin: auto;
+  border-radius: 25px;
+  background-color: #4b9467;
+  color: #e4eefa;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#print {
+  color: #7f3136;
+  font-size: 18px;
+  margin: 5px;
+}
+
+#main {
+  text-align: center;
+}
+</style>
+
+<script>
+// JavaScript Code
+var board = ['', '', '', '', '', '', '', '', '']; // Represents the game board as an array
+var currentPlayer = 'X'; // Represents the current player ('X' or 'O')
+var gameOver = false; // Indicates if the game is over or not
+
+function playerMove(position) {
+  // Function called when the human player makes a move
+
+  // Check if the game is not over and the selected position is empty
+  if (!gameOver && board[position - 1] === '') {
+    document.getElementById('b' + position).value = currentPlayer; // Update the UI with the player's move
+    board[position - 1] = currentPlayer; // Update the game board array
+    checkWin(); // Check if the move resulted in a win or a tie
+    if (!gameOver) {
+      if (currentPlayer === 'X') {
+        currentPlayer = 'O'; // Switch to the auto-player's turn
+        document.getElementById('print').innerHTML = "Player O Turn";
+        autoPlayerMove(); // Let the auto-player make its move
+      } else {
+        currentPlayer = 'X'; // Switch back to the human player's turn
+        document.getElementById('print').innerHTML = "Player X Turn";
+      }
+    }
+  }
+}
+
+function autoPlayerMove() {
+  // Function called when the auto-player makes a move
+
+  var availablePositions = [];
+  // Find all empty positions on the board
+  for (var i = 0; i < board.length; i++) {
+    if (board[i] === '') {
+      availablePositions.push(i);
+    }
+  }
+  if (availablePositions.length > 0) {
+    // Choose a random position from the available positions
+    var randomIndex = Math.floor(Math.random() * availablePositions.length);
+    var position = availablePositions[randomIndex] + 1;
+    document.getElementById('b' + position).value = currentPlayer; // Update the UI with the auto-player's move
+    board[position - 1] = currentPlayer; // Update the game board array
+    checkWin(); // Check if the move resulted in a win or a tie
+    if (!gameOver) {
+      currentPlayer = 'X'; // Switch back to the human player's turn
+      document.getElementById('print').innerHTML = "Player X Turn";
+    }
+  }
+}
+
+function checkWin() {
+  // Function to check if a player has won or if there is a tie
+
+  var winningCombinations = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+    [0, 4, 8], [2, 4, 6] // Diagonals
+  ];
+
+  // Iterate through all winning combinations
+  for (var i = 0; i < winningCombinations.length; i++) {
+    var [a, b, c] = winningCombinations[i];
+    // Check if the current combination is filled with the same player's symbol
+    if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
+      document.getElementById('print').innerHTML = "Player " + currentPlayer + " won"; // Display the winner
+      window.alert('Player ' + currentPlayer + ' won');
+      gameOver = true; // Set the game as over
+      disableBoard(); // Disable the game board
+      return;
+    }
+  }
+
+  // Check if the game ended in a tie
+  if (board.indexOf('') === -1) {
+    document.getElementById('print').innerHTML = "Match Tie";
+    window.alert('Match Tie');
+    gameOver = true; // Set the game as over
+    disableBoard(); // Disable the game board
+  }
+}
+
+function resetGame() {
+  // Function to reset the game to its initial state
+
+  board = ['', '', '', '', '', '', '', '', '']; // Reset the game board array
+  currentPlayer = 'X'; // Reset the current player
+  gameOver = false; // Set the game as not over
+  document.getElementById('print').innerHTML = "Player X Turn"; // Update the UI
+  for (var i = 1; i <= 9; i++) {
+    document.getElementById('b' + i).value = ''; // Clear the UI for each position on the board
+    document.getElementById('b' + i).disabled = false; // Enable all positions on the board
+  }
+}
+
+function disableBoard() {
+  // Function to disable the game board
+
+  for (var i = 1; i <= 9; i++) {
+    document.getElementById('b' + i).disabled = true; // Disable each position on the board
+  }
+}
+
+</script>

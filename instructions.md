@@ -47,30 +47,25 @@
 
 <h2>How to Play</h2>
 <br>
-
+<!--
 <button class="accordion">Tic-Tac-Toe</button>
 <div class="panel">
   <p>When you click play, a menu will appear with 4 different options for playing.</p>
   <h4>Human VS Computer</h4>
   <p>This option allows you to play against a computer.</p>
   <br>
-
   <h4>Human VS Human</h4>
   <p>This option allows you to play against another person.</p>
   <br>
-
   <h4>Computer VS Computer</h4>
   <p>In this option, two computers play each other.</p>
   <br>
-
   <h4>Quit</h4>
   <p>This option quits the game.</p>
-
   <hr>
-
   <p>Players take turns putting their marks in empty squares. The first player to get 3 of their marks in a row (up, down, across, or diagonally) is the winner. When all 9 squares are full the game is over. If no player has 3 marks in a row, the game ends in a tie.</p>
 </div>
-<br>
+<br>-->
 
 <button class="accordion">Connect 4</button>
 <div class="panel">
