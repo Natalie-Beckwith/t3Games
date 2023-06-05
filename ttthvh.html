@@ -1,0 +1,157 @@
+<head>
+  <meta name="viewport" content=
+          "width=device-width, initial-scale=1.0">
+  <!-- CSS file Included -->
+  <link rel="stylesheet"
+        type="text/css" href="tic.css">
+  <!-- JavaScript file included -->
+  <script src="tic.js"></script>
+</head>
+
+<body>
+<div id="main">
+  <h2>Tic-Tac-Toe</h2>
+  <br>
+  <!-- Game Instructions -->
+  <!-- 3*3 grid of Boxes -->
+  <input type="text" id="b1" class="box" onclick="playTurn('b1')">
+<input type="text" id="b2" class="box" onclick="playTurn('b2')">
+<input type="text" id="b3" class="box" onclick="playTurn('b3')">
+<br>
+<input type="text" id="b4" class="box" onclick="playTurn('b4')">
+<input type="text" id="b5" class="box" onclick="playTurn('b5')">
+<input type="text" id="b6" class="box" onclick="playTurn('b6')">
+<br>
+<input type="text" id="b7" class="box" onclick="playTurn('b7')">
+<input type="text" id="b8" class="box" onclick="playTurn('b8')">
+<input type="text" id="b9" class="box" onclick="playTurn('b9')">
+  <!-- Grid end here  -->
+  <br><br>
+  <!-- Button to reset game -->
+  <button id="but" onclick="myfunc_2()">
+      RESET
+  </button>
+  <br>
+  <!-- Space to show player turn -->
+  <p id="print"></p>
+</div>
+</body>
+
+<style>
+  /* CSS Code */
+  /* Heading */
+  /* 3*3 Grid */
+  #b1, #b2, #b3, #b4, #b5,
+  #b6, #b7, #b8, #b9
+  {
+      width: 150px;
+      height: 150px;
+      margin: auto;
+      border-radius: 8px;
+      font-size: 75px;
+      text-align: center;
+      background-color: #e4eefa;
+      color: #4877b7;
+      margin: 5px 5px;
+      border:none;
+      font-family: "Cursive";
+  }
+
+  /* Reset Button */
+  #but {
+      box-sizing: border-box;
+      padding: 10px;
+      border: none;
+      margin: auto;
+      border-radius: 25px;
+      background-color: #4b9467;
+      color: #e4eefa;
+      font-size: 20px;
+      cursor: pointer;
+  }
+
+  /* Player turn space */
+  #print
+  {
+      color: #7f3136;
+      font-size: 18px;
+      margin: 5px;
+  }
+
+  /* Main Container */
+  #main {
+      text-align: center;
+  }
+
+</style>
+
+<script>
+// Function called whenever user clicks on any box
+function playTurn(boxId) {
+var box = document.getElementById(boxId);
+if (box.value === '') {
+  box.value = (flag === 1) ? 'X' : '0';
+  box.disabled = true;
+  flag = 1 - flag;
+  checkResult();
+}
+}
+
+// Function to check if a player has won or if the match is a tie
+function checkResult() {
+var winningCombinations = [
+  ['b1', 'b2', 'b3'],
+  ['b4', 'b5', 'b6'],
+  ['b7', 'b8', 'b9'],
+  ['b1', 'b4', 'b7'],
+  ['b2', 'b5', 'b8'],
+  ['b3', 'b6', 'b9'],
+  ['b1', 'b5', 'b9'],
+  ['b3', 'b5', 'b7']
+];
+
+for (var i = 0; i < winningCombinations.length; i++) {
+  var [a, b, c] = winningCombinations[i];
+  if (
+    document.getElementById(a).value === document.getElementById(b).value &&
+    document.getElementById(b).value === document.getElementById(c).value
+  ) {
+    document.getElementById('print').innerHTML = "Player " + document.getElementById(a).value + " won";
+    disableAllBoxes();
+    window.alert('Player ' + document.getElementById(a).value + ' won');
+    return;
+  }
+}
+
+var allBoxesFilled = true;
+var boxes = document.getElementsByClassName('box');
+for (var i = 0; i < boxes.length; i++) {
+  if (boxes[i].value === '') {
+    allBoxesFilled = false;
+    break;
+  }
+}
+
+if (allBoxesFilled) {
+  document.getElementById('print').innerHTML = "Match Tie";
+  window.alert('Match Tie');
+} else {
+  document.getElementById('print').innerHTML = "Player " + ((flag === 1) ? 'X' : '0') + " Turn";
+}
+}
+
+// Function to disable all the boxes
+function disableAllBoxes() {
+var boxes = document.getElementsByClassName('box');
+for (var i = 0; i < boxes.length; i++) {
+  boxes[i].disabled = true;
+}
+}
+
+// Function to reset the game
+function resetGame() {
+location.reload();
+}
+
+var flag = 1; // flag to keep track of current player's turn
+</script>
